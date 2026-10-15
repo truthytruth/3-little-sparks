@@ -4,18 +4,48 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>3 Little Sparks – Bamboo Pajamas &amp; 3D Printed Treasures</title>
-<meta name="description" content="3 Little Sparks: cozy wear, magical makes. Bamboo pajamas for kids and adults plus 3D printed dragons and fidgets. Find our shops on Whatnot, Vinted, and Mercari.">
+<meta name="description" content="3 Little Sparks: cozy wear, magical makes. Bamboo pajamas for kids and adults plus 3D printed dragons and fidgets. Find our shops on Whatnot and Vinted.">
 <link rel="canonical" href="https://3littlesparks.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://3littlesparks.com/">
 <meta property="og:title" content="3 Little Sparks">
-<meta property="og:description" content="Cozy wear. Magical makes. Bamboo pajamas and 3D printed creations on Whatnot, Vinted, and Mercari.">
+<meta property="og:description" content="Cozy wear. Magical makes. Bamboo pajamas and 3D printed creations on Whatnot and Vinted.">
 <meta property="og:image" content="https://3littlesparks.com/logo.jpg">
 <meta name="theme-color" content="#faf8f3">
 <link rel="icon" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Great+Vibes&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- Structured data: tells Google this site and the shops below are the same business -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://3littlesparks.com/#organization",
+      "name": "3 Little Sparks",
+      "alternateName": ["Three Little Sparks", "3littlesparks"],
+      "url": "https://3littlesparks.com/",
+      "logo": "https://3littlesparks.com/logo.jpg",
+      "slogan": "Cozy wear. Magical makes.",
+      "description": "Bamboo pajamas for kids and adults plus 3D printed dragons and fidgets.",
+      "sameAs": [
+        "https://www.whatnot.com/s/PBSKeDaS",
+        "https://www.vinted.com/member/3156074020-3littlesparks"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://3littlesparks.com/#website",
+      "name": "3 Little Sparks",
+      "alternateName": "Three Little Sparks",
+      "url": "https://3littlesparks.com/",
+      "publisher": { "@id": "https://3littlesparks.com/#organization" }
+    }
+  ]
+}
+</script>
 <style>
   /* Brand colors, pulled from the 3 Little Sparks logo */
   :root {
@@ -118,7 +148,6 @@
   }
   .shop.whatnot .badge { background: var(--lavender); }
   .shop.vinted .badge  { background: var(--blush); }
-  .shop.mercari .badge { background: var(--gold); }
   .shop-text { flex: 1; }
   .shop-name { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 1.45rem; line-height: 1.2; display: block; }
   .shop-desc { color: var(--muted); font-size: 0.92rem; }
@@ -169,17 +198,6 @@
       <span class="arrow" aria-hidden="true">›</span>
     </a>
 
-    <!-- MERCARI: replace PASTE_MERCARI_LINK_HERE with her shop link.
-         Until then, this button stays hidden automatically. -->
-    <a class="shop mercari" href="PASTE_MERCARI_LINK_HERE" target="_blank" rel="noopener">
-      <span class="badge">M</span>
-      <span class="shop-text">
-        <span class="shop-name">Mercari</span>
-        <span class="shop-desc">Shop listings anytime</span>
-      </span>
-      <span class="arrow" aria-hidden="true">›</span>
-    </a>
-
   </div>
 
   <footer>
@@ -189,10 +207,6 @@
 </main>
 
 <script>
-  // Hide any shop button that still has a placeholder link
-  document.querySelectorAll('a.shop').forEach(function (a) {
-    if (a.getAttribute('href').indexOf('PASTE_') === 0) a.style.display = 'none';
-  });
   document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
 </body>
