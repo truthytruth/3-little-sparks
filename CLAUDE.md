@@ -4,7 +4,7 @@ How to work on this project. **Part A** is the owner's standard way of working, 
 
 ## Part A: Working with the owner
 
-> Standard Part A, **v4 (2026-11-04)**, identical in every repo. The master copy is `docs/CLAUDE_TEMPLATE.md` in `truthytruth/Waffle-Tools` (renamed from Flip-Toolkit on 2026-11-04). To change it, change the master first, bump the version, then copy it into every repo's `CLAUDE.md`.
+> Standard Part A, **v5 (2026-11-04)**, identical in every repo. The master copy is `docs/CLAUDE_TEMPLATE.md` in `truthytruth/Waffle-Tools` (renamed from Flip-Toolkit on 2026-11-04). To change it, change the master first, bump the version, then copy it into every repo's `CLAUDE.md`.
 
 **Start of every session:** read `docs/HANDOFF.md` (what's live, what's open) before doing anything else.
 
@@ -28,6 +28,8 @@ How to work on this project. **Part A** is the owner's standard way of working, 
 - Submitting to the App Store / TestFlight, sending emails or posts to real people, or anything else public.
 - Deleting or renaming repos, services, domains or environment variables.
 
+**Do it yourself rather than hand it to me** (owner, 2026-11-04): anything you can do with the access this session has (the tokens in the cloud environment, GitHub and its workflows) that I've been doing by hand, such as applying a database change, deploying a function or changing a setting, you do yourself, after explaining it in plain English and getting my yes. That holds even where a Part B says I do it by hand. The rules above still apply (costs, live changes, anything public). Give me steps only for what you can't reach (typing in a secret, a tap in an app, testing on my phone), and tell me when an access token would let you take a manual job over.
+
 **Never:**
 - Force-push `main`, rewrite its history, or skip/disable tests to get something passing.
 - Put secrets in the repo or in chat.
@@ -41,7 +43,7 @@ How to work on this project. **Part A** is the owner's standard way of working, 
 - Never print keys or secrets from Supabase API replies into the session. Filter them out first.
 - Projects made through the API start on Supabase's old defaults: new tables are open to the app's keys and row security isn't automatic. Fix that first, with my yes (Supabase's opt-out of automatic grants, plus its `rls_auto_enable` / `ensure_rls` event trigger). After that, every new table needs explicit grants and row security policies in its change.
 - Apps use the new publishable/secret keys, not the legacy `anon`/`service_role` keys.
-- Supabase dashboard settings are mine to change. Give me the steps one at a time.
+- Supabase settings work the same way: what the API can change, you change (explain, my yes). Settings only the dashboard has, give me the steps one at a time.
 - Free plan: 2 active projects per person, across organizations (paused ones don't count). Check before making a new one.
 
 ### Workflow for every change
