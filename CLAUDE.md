@@ -4,7 +4,7 @@ How to work on this project. **Part A** is the owner's standard way of working, 
 
 ## Part A: Working with the owner
 
-> Standard Part A, **v1 (2026-11-02)**, identical in every repo. The master copy is `docs/CLAUDE_TEMPLATE.md` in `truthytruth/Flip-Toolkit`. To change it, change the master first, bump the version, then copy it into every repo's `CLAUDE.md`.
+> Standard Part A, **v4 (2026-11-04)**, identical in every repo. The master copy is `docs/CLAUDE_TEMPLATE.md` in `truthytruth/Waffle-Tools` (renamed from Flip-Toolkit on 2026-11-04). To change it, change the master first, bump the version, then copy it into every repo's `CLAUDE.md`.
 
 **Start of every session:** read `docs/HANDOFF.md` (what's live, what's open) before doing anything else.
 
@@ -12,7 +12,7 @@ How to work on this project. **Part A** is the owner's standard way of working, 
 - I'm the sole owner and developer. I work **from an iPhone**, usually in the Claude app, and don't have a Mac.
 - Give setup steps **one at a time** and wait for me to confirm each one before the next.
 - Put anything I need to copy (names, URLs, short values) in its own code block. For long code or SQL, publish a page with a **Copy** button (a claude.ai artifact). The file viewer can't copy text.
-- When a website is awkward on a phone and the service has an iOS app (GitHub, App Store Connect, Cloudflare, Render, Stripe…), point me to the app first.
+- When a website is awkward on a phone and the service has an iOS app (GitHub, App Store Connect, Cloudflare, Stripe…), point me to the app first. For Render, use its website (dashboard.render.com) in Safari.
 - Never ask me to paste passwords, API keys, signing keys or other secrets into chat. Tell me where to enter them (dashboard, GitHub secret, environment variable) instead.
 
 ### What you can do without asking, and what needs my OK
@@ -23,6 +23,7 @@ How to work on this project. **Part A** is the owner's standard way of working, 
 **Ask me first, every time (an earlier yes doesn't carry over to the next change):**
 - Merging or pushing anything else to `main`, or anything else that changes the live app. That includes over-the-air/live updates to installed phone apps.
 - Changes to the live database, and deleting real data.
+- Any change to a Supabase database: see **Databases (Supabase)** below for the rules.
 - Anything that **costs money**: macOS/iOS builds on GitHub Actions (they count ×10 against the free minutes), paid APIs or AI, new subscriptions or paid tiers. Say roughly what it will cost.
 - Submitting to the App Store / TestFlight, sending emails or posts to real people, or anything else public.
 - Deleting or renaming repos, services, domains or environment variables.
@@ -31,6 +32,17 @@ How to work on this project. **Part A** is the owner's standard way of working, 
 - Force-push `main`, rewrite its history, or skip/disable tests to get something passing.
 - Put secrets in the repo or in chat.
 - Guess at a third-party format or API (bulk-upload files, API fields, fee rates). Check the real docs, or ask me for a sample.
+
+### Databases (Supabase)
+- You may change my Supabase databases yourself, through `SUPABASE_ACCESS_TOKEN` in the cloud environment. This covers every project in my Supabase account. There's no Supabase GitHub connection.
+- **Never without my explicit yes** after a plain-English explanation, every time. An earlier yes doesn't carry over.
+- Every change comes with an undo. Try both on a throwaway local Postgres first. Take a copy of the live database right before applying (the free plan has no automatic backups).
+- Make changes additive where possible (add first, remove later), so the live app keeps working.
+- Never print keys or secrets from Supabase API replies into the session. Filter them out first.
+- Projects made through the API start on Supabase's old defaults: new tables are open to the app's keys and row security isn't automatic. Fix that first, with my yes (Supabase's opt-out of automatic grants, plus its `rls_auto_enable` / `ensure_rls` event trigger). After that, every new table needs explicit grants and row security policies in its change.
+- Apps use the new publishable/secret keys, not the legacy `anon`/`service_role` keys.
+- Supabase dashboard settings are mine to change. Give me the steps one at a time.
+- Free plan: 2 active projects per person, across organizations (paused ones don't count). Check before making a new one.
 
 ### Workflow for every change
 1. Work on a branch named `claude/<short-topic>`. No pull request unless I ask for one.
