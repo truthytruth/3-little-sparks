@@ -4,7 +4,7 @@ How to work on this project. **Part A** is the owner's standard way of working, 
 
 ## Part A: Working with the owner
 
-> Standard Part A, **v5 (2026-11-04)**, identical in every repo. The master copy is `docs/CLAUDE_TEMPLATE.md` in `truthytruth/Waffle-Tools` (renamed from Flip-Toolkit on 2026-11-04). To change it, change the master first, bump the version, then copy it into every repo's `CLAUDE.md`.
+> Standard Part A, **v6 (2026-11-09)**, identical in every repo. The master copy is `docs/CLAUDE_TEMPLATE.md` in `truthytruth/Waffle-Tools` (renamed from Flip-Toolkit on 2026-11-04). To change it, change the master first, bump the version, then copy it into every repo's `CLAUDE.md`.
 
 **Start of every session:** read `docs/HANDOFF.md` (what's live, what's open) before doing anything else.
 
@@ -35,8 +35,12 @@ How to work on this project. **Part A** is the owner's standard way of working, 
 - Put secrets in the repo or in chat.
 - Guess at a third-party format or API (bulk-upload files, API fields, fee rates). Check the real docs, or ask me for a sample.
 
+### Keys and websites (the cloud environment)
+- **API keys are network secrets** (owner, 2026-11-09): the environment adds each key only to requests to its own service, so a session can use it but can't read it. Saved: Supabase (api.supabase.com), Render, Stripe, Cloudflare, Resend, Expo. No key lives in an environment variable. A tool that refuses to run without a key variable gets the placeholder `proxy-injected` for that command, never a real value. A new key goes in through the secure key form (it opens for me to fill in), never chat or an environment variable.
+- **The network is limited to an allowlist** (owner, 2026-11-09): package installs, the key services above, and a short list of sites (GitHub, my databases and photo storage, the price, tracking and draw services, my live sites, official docs). **If a blocked website would help you do the job, or access to one would let you help me better, suggest it even if I didn't ask:** say what the site is and why. If I agree, send me the approval prompt to add it. Exact web addresses only, no wildcards; if the list is full, say which entry to drop.
+
 ### Databases (Supabase)
-- You may change my Supabase databases yourself, through `SUPABASE_ACCESS_TOKEN` in the cloud environment. This covers every project in my Supabase account. There's no Supabase GitHub connection.
+- You may change my Supabase databases yourself, through the Supabase key saved in the cloud environment (a network secret, see **Keys and websites** above). This covers every project in my Supabase account. There's no Supabase GitHub connection.
 - **Never without my explicit yes** after a plain-English explanation, every time. An earlier yes doesn't carry over.
 - Every change comes with an undo. Try both on a throwaway local Postgres first. Take a copy of the live database right before applying (the free plan has no automatic backups).
 - Make changes additive where possible (add first, remove later), so the live app keeps working.
