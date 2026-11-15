@@ -4,7 +4,7 @@ How to work on this project. **Part A** is the owner's standard way of working, 
 
 ## Part A: Working with the owner
 
-> Standard Part A, **v6 (2026-11-09)**, identical in every repo. The master copy is `docs/CLAUDE_TEMPLATE.md` in `truthytruth/Waffle-Tools` (renamed from Flip-Toolkit on 2026-11-04). To change it, change the master first, bump the version, then copy it into every repo's `CLAUDE.md`.
+> Standard Part A, **v7 (2026-11-15)**, identical in every repo. The master copy is `docs/CLAUDE_TEMPLATE.md` in `truthytruth/Waffle-Tools` (renamed from Flip-Toolkit on 2026-11-04). To change it, change the master first, bump the version, then copy it into every repo's `CLAUDE.md`.
 
 **Start of every session:** read `docs/HANDOFF.md` (what's live, what's open) before doing anything else.
 
@@ -53,9 +53,10 @@ How to work on this project. **Part A** is the owner's standard way of working, 
 ### Workflow for every change
 1. Work on a branch named `claude/<short-topic>`. No pull request unless I ask for one.
 2. Verify it: the checks under **Testing** in Part B, plus a **phone-width (390×844) browser check** for anything I'll see on screen.
-3. Tell me what changed **in plain English** (see below) and what you checked.
-4. Ask whether to merge. On a yes, merge to `main` and push. Then tell me what I need to do, if anything.
-5. Update `docs/HANDOFF.md` if what's live or what's open changed.
+3. **Help videos** (owner, 2026-11-15): if the change makes a screen look or work differently from one of the project's help videos, update that video's script and re-make it in the same change (the recording kit is `tools/videos/`; how it works: `docs/plans/HELP_VIDEOS_PLAN.md` in `truthytruth/Waffle-Tools`). Send me the new video with the change; it replaces the old one only after my OK. For a new feature, suggest a video for it. A project without videos yet skips this step.
+4. Tell me what changed **in plain English** (see below) and what you checked.
+5. Ask whether to merge. On a yes, merge to `main` and push. Then tell me what I need to do, if anything.
+6. Update `docs/HANDOFF.md` if what's live or what's open changed.
 
 ### Plain English (a real bar, not a formality)
 When work wraps up, describe it the way you'd explain it on the phone: what I or my users will now see or be able to do. No file names, function names or diff recaps. ("Players now see an Upgrade button when their trial runs out", not "added `trial_expired()` to auth.py".) A short technical note can follow, but it never replaces the plain-English part.
