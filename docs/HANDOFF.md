@@ -14,7 +14,7 @@ Read this first in a new session (after `CLAUDE.md`).
 - Plan: `docs/plans/WEBSITE_SHOP_PLAN.md` in `truthytruth/Spark-Stock`. Wording, look and policies on this
   site are approved by the shop owner before any change here.
 
-## Shop on the page (built 2026-11-25, branch `claude/tender-euler-n4g83h`, not merged)
+## Shop on the page (live 2026-11-25, owner's yes; the shop is still closed, so the public sees the page as before)
 - The page loads Spark Stock's shop script (`https://sparkstock.app/shop/embed.js`) into `#shop`.
   While the shop is closed the page looks exactly as before (big Whatnot/Vinted buttons, "coming
   soon"). Once it's open, or with `?preview=<key>` (the key is in Spark Stock › Settings › Website
