@@ -91,7 +91,8 @@ wife's business, so ask before changing wording, shops or branding.
 
 ### Stack and hosting
 One static `index.html` (inline CSS, brand colors from the logo) with `logo.jpg`, `robots.txt`,
-`sitemap.xml` and structured data for Google. Hosted on **GitHub Pages**: merging to `main`
+`sitemap.xml` and structured data for Google. The shop itself is drawn by Spark Stock's shop script
+(`https://sparkstock.app/shop/embed.js`) into `#shop`; its items come from Spark Stock. Hosted on **GitHub Pages**: merging to `main`
 publishes it at once. Custom domain via `CNAME`.
 
 ### Testing (run before asking to merge)

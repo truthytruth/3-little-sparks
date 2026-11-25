@@ -156,6 +156,40 @@
   footer { margin-top: 36px; color: var(--muted); font-size: 0.85rem; }
   footer .soon { font-family: "Great Vibes", cursive; font-size: 1.5rem; color: var(--lavender); display: block; margin-bottom: 4px; }
 
+  /* ---------- Our own shop (drawn by Spark Stock's shop script into #shop) ---------- */
+  :root {
+    --spark-shop-accent: var(--ink);
+    --spark-shop-accent-ink: #fff;
+    --spark-shop-ink: var(--ink);
+    --spark-shop-muted: var(--muted);
+    --spark-shop-card: var(--card);
+    --spark-shop-border: var(--border);
+    --spark-shop-soft: #f3eef8;
+    --spark-shop-font: "Nunito", system-ui, sans-serif;
+    --spark-shop-heading-font: "Cormorant Garamond", serif;
+    --spark-shop-radius: 18px;
+    --spark-shop-shadow: var(--shadow);
+  }
+  .shop-title { display: none; }
+  #shop { margin-top: 8px; }
+
+  /* Once the shop is open, it's the main thing: a smaller logo, and Whatnot and Vinted
+     become a compact row up top. Until then the page looks as it always has. */
+  body:has(#shop[data-spark-shop-state="ready"]) main { max-width: 960px; }
+  body:has(#shop[data-spark-shop-state="ready"]) .top { max-width: 480px; margin: 0 auto; }
+  body:has(#shop[data-spark-shop-state="ready"]) .logo { max-width: 240px; }
+  body:has(#shop[data-spark-shop-state="ready"]) .intro { font-size: 1.1rem; margin-bottom: 12px; }
+  body:has(#shop[data-spark-shop-state="ready"]) .chips,
+  body:has(#shop[data-spark-shop-state="ready"]) footer .soon { display: none; }
+  body:has(#shop[data-spark-shop-state="ready"]) .label { display: none; }
+  body:has(#shop[data-spark-shop-state="ready"]) .shops { flex-direction: row; gap: 10px; margin-bottom: 22px; }
+  body:has(#shop[data-spark-shop-state="ready"]) .shop { flex: 1; min-width: 0; gap: 8px; padding: 8px 12px; border-radius: 999px; box-shadow: none; }
+  body:has(#shop[data-spark-shop-state="ready"]) .badge { flex-basis: 30px; height: 30px; font-size: 1.05rem; }
+  body:has(#shop[data-spark-shop-state="ready"]) .shop-name { font-size: 1.1rem; }
+  body:has(#shop[data-spark-shop-state="ready"]) .shop-desc,
+  body:has(#shop[data-spark-shop-state="ready"]) .arrow { display: none; }
+  body:has(#shop[data-spark-shop-state="ready"]) .shop-title { display: block; }
+
   @media (max-width: 380px) {
     .shop { padding: 14px; }
     .shop-name { font-size: 1.3rem; }
@@ -164,6 +198,7 @@
 </head>
 <body>
 <main>
+  <div class="top">
 
   <h1 class="sr-only">3 Little Sparks: Cozy wear. Magical makes.</h1>
   <img class="logo" src="logo.jpg" width="900" height="720"
@@ -199,6 +234,10 @@
     </a>
 
   </div>
+  </div>
+
+  <h2 class="label shop-title">Shop our pieces</h2>
+  <section id="shop" data-spark-shop="3littlesparks" aria-label="Shop"></section>
 
   <footer>
     <span class="soon">Our own shop is coming soon</span>
@@ -206,6 +245,7 @@
   </footer>
 </main>
 
+<script src="https://sparkstock.app/shop/embed.js" defer></script>
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
