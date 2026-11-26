@@ -23,13 +23,17 @@ Read this first in a new session (after `CLAUDE.md`).
 - Shop colors and fonts come from the page's `--spark-shop-*` variables (plum buttons, Nunito and
   Cormorant Garamond). Plan: `docs/plans/WEBSITE_SHOP_PLAN.md` in `truthytruth/Spark-Stock`.
 
-## Email on the domain (open, 2026-11-26)
-- Owner's decision: a real inbox on the domain via **iCloud+ Custom Email Domain** (free with the
-  family iCloud plan), set up on the shop owner's own Apple account, not forwarding to Gmail.
-- Tried first on `sparkstock.app` (owner's account, 2026-11-26): works. Apple's Cloudflare
-  auto-setup replaced Email Routing's MX with iCloud's, merged the root SPF
-  (`include:_spf.mx.cloudflare.net include:icloud.com`), added `apple-domain=` TXT and the
-  `sig1._domainkey` CNAME, and left the `cf-bounce` sending records and DMARC alone.
-- Still to do for 3littlesparks.com: the shop owner picks an address, runs the setup on her iPhone /
-  icloud.com (manual setup isn't offered for Cloudflare domains: use the Cloudflare route, "Unlock
-  Email Routing records", then authorize), then test. Today its MX is Cloudflare Email Routing.
+## Email on the domain (live 2026-11-26)
+- Real inboxes via **iCloud+ Custom Email Domain** (free with the family iCloud plan), not forwarding.
+  The domain is on the owner's Apple account, shared with family: `support@3littlesparks.com` is the
+  owner's; the shop owner has her own address on it in her own iCloud Mail. Both tested (receive).
+  `sparkstock.app` is set up the same way (owner only, `support@`), receive and reply tested.
+- DNS (Cloudflare): Apple's Cloudflare auto-setup replaced Email Routing's MX with iCloud's, merged
+  the root SPF (`include:_spf.mx.cloudflare.net include:icloud.com`), added `apple-domain=` TXT and
+  the `sig1._domainkey` CNAME. Website, Google verification, and Spark Stock's `cf-bounce` sending
+  records were left alone.
+- Setup tips: manual setup isn't offered for Cloudflare domains, so use Apple's Cloudflare route
+  ("Unlock Email Routing records", then authorize). Add addresses as **new**, not "existing", unless
+  they already receive mail, or Apple's check email goes nowhere.
+- Open: Cloudflare Email Routing is still switched on for both domains but unused (harmless); can be
+  turned off with the owner's OK.
