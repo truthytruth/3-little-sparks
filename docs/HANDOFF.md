@@ -35,5 +35,7 @@ Read this first in a new session (after `CLAUDE.md`).
 - Setup tips: manual setup isn't offered for Cloudflare domains, so use Apple's Cloudflare route
   ("Unlock Email Routing records", then authorize). Add addresses as **new**, not "existing", unless
   they already receive mail, or Apple's check email goes nowhere.
-- Open: Cloudflare Email Routing is still switched on for both domains but unused (harmless); can be
-  turned off with the owner's OK.
+- Cloudflare forwarding: the `support@sparkstock.app` rule was switched off (not deleted) on
+  2026-11-26, owner's yes; 3littlesparks.com had no active rules. Email Routing itself was left on on
+  purpose: disabling it can remove the DNS records it manages (the merged SPF) and Spark Stock's
+  sending shares that Cloudflare email setup.
