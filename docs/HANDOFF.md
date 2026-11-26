@@ -22,3 +22,14 @@ Read this first in a new session (after `CLAUDE.md`).
   "Shop our pieces". The `body:has(#shop[data-spark-shop-state="ready"])` rules do the switch.
 - Shop colors and fonts come from the page's `--spark-shop-*` variables (plum buttons, Nunito and
   Cormorant Garamond). Plan: `docs/plans/WEBSITE_SHOP_PLAN.md` in `truthytruth/Spark-Stock`.
+
+## Email on the domain (open, 2026-11-26)
+- Owner's decision: a real inbox on the domain via **iCloud+ Custom Email Domain** (free with the
+  family iCloud plan), set up on the shop owner's own Apple account, not forwarding to Gmail.
+- Tried first on `sparkstock.app` (owner's account, 2026-11-26): works. Apple's Cloudflare
+  auto-setup replaced Email Routing's MX with iCloud's, merged the root SPF
+  (`include:_spf.mx.cloudflare.net include:icloud.com`), added `apple-domain=` TXT and the
+  `sig1._domainkey` CNAME, and left the `cf-bounce` sending records and DMARC alone.
+- Still to do for 3littlesparks.com: the shop owner picks an address, runs the setup on her iPhone /
+  icloud.com (manual setup isn't offered for Cloudflare domains: use the Cloudflare route, "Unlock
+  Email Routing records", then authorize), then test. Today its MX is Cloudflare Email Routing.
